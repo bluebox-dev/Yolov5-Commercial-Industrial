@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+.DS_Store
+~$*.pptx
+result.jpg
+result.mp4
+capture.jpg
+Integration-Camera-Local/**/yolov5/

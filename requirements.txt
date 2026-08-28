@@ -1,0 +1,6 @@
+# Workshop #2 — ควบคุมกล้อง Basler และประมวลผลภาพ
+# ติดตั้งด้วย:  python3 setup.py       (หรือกด Task "2 · ติดตั้ง Library")
+
+pypylon>=3.0          # ระวัง: ชื่อคือ pypylon ไม่ใช่ pylon
+opencv-python>=4.8
+numpy

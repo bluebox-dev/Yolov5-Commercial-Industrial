@@ -1,0 +1,23 @@
+# Workshop #3 — Edge Deployment ด้วย YOLOv5
+# ติดตั้งอัตโนมัติเมื่อกดปุ่ม Run บน setup.py (หรือกด Task 1)
+#
+# ชุดนี้ไฟล์ใหญ่และใช้เวลาโหลดนาน จึงติดตั้งเป็นขั้นที่สอง
+# ถ้าเครื่องมี GPU NVIDIA และอยากได้ CUDA ให้ดูคำสั่งที่ตรงกับเครื่องที่ https://pytorch.org
+
+torch
+torchvision
+
+# dependency ที่ YOLOv5 v7.0 ต้องใช้ตอนโหลดโมเดลผ่าน torch.hub
+# (ขาดตัวใดตัวหนึ่งจะ error ตอน load_model ทันที)
+ipython
+gitpython
+pillow
+psutil
+pyyaml
+requests
+scipy
+thop
+tqdm
+pandas
+matplotlib
+seaborn
