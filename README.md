@@ -13,6 +13,7 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white)
 ![pypylon](https://img.shields.io/badge/pypylon-3.0%2B-0098D8)
 ![OpenCV](https://img.shields.io/badge/OpenCV-4.8%2B-5C3EE8?logo=opencv&logoColor=white)
+![License](https://img.shields.io/badge/License-GPL--3.0-blue)
 
 </div>
 
@@ -148,6 +149,8 @@ python step4_camera.py    # กล้อง Basler Real-time                ← 
 `Halls-Purple` conf ต่ำสุดเพราะสีซีดและมีตัวอย่างใน dataset น้อย — เป็นคลาสแรกที่ควรเก็บภาพเพิ่ม
 
 ---
+
+<a id="modelcard"></a>
 
 ## 3 · Model card — `best.pt` ที่ให้มา
 
@@ -316,6 +319,8 @@ python Integration-Camera-Local/Pylon+Yolov5/step1_model.py   # ต้องข�
 
 ```text
 Yolov5-Commercial-Industrial/
+├── LICENSE                           GPL-3.0 ฉบับเต็ม
+├── THIRD-PARTY-NOTICES.md            ใบอนุญาตของ dependency ทุกตัว + เช็คลิสต์ก่อนแจกจ่าย
 ├── setup.py                          ติดตั้ง + verify ทั้งหมดในไฟล์เดียว
 ├── requirements.txt                  pypylon · opencv-python · numpy
 ├── requirements-yolo.txt             torch · torchvision · dependency ของ YOLOv5 v7.0
@@ -345,8 +350,7 @@ Yolov5-Commercial-Industrial/
 │   ├── Roboflow/                     dataset ที่ export แล้ว (YOLO v5 PyTorch)
 │   ├── Video_Origin/                 คลิปทดสอบ 1–3.mp4 · homework.mp4
 │   └── Result Model/                 ตัวอย่าง output
-├── docs/                             ภาพประกอบเอกสาร
-└── PPT-Slides/                       สไลด์ประกอบการอบรม (ไม่จำเป็นต่อการรันโค้ด)
+└── docs/                             ภาพประกอบเอกสาร
 ```
 
 **สถาปัตยกรรมเดียวกันทั้งสองโฟลเดอร์** — `config.py` เก็บค่าปรับได้ทั้งหมด · `*_lib.py` เก็บตรรกะที่ใช้ซ้ำ
@@ -538,18 +542,34 @@ overhead ของการส่งงานเข้า GPU ไม่ใช่
 
 ## ใบอนุญาตและการใช้เชิงพาณิชย์
 
+โปรเจกต์นี้เผยแพร่ภายใต้ **GPL-3.0** — ตัวบทฉบับเต็มอยู่ที่ [`LICENSE`](LICENSE)
+ใบอนุญาตของส่วนประกอบภายนอกทุกตัว และเช็คลิสต์ก่อนแจกจ่าย อยู่ที่ [`THIRD-PARTY-NOTICES.md`](THIRD-PARTY-NOTICES.md)
+
+```
+Copyright (C) 2026 bluebox-dev
+Licensed under the GNU General Public License v3.0 or later.
+```
+
 | ส่วน | ใบอนุญาต |
 |---|---|
-| YOLOv5 **v7.0** (โค้ดเทรน/inference) | **GPL-3.0** |
+| โค้ดและสื่อในโปรเจกต์นี้ | **GPL-3.0** |
+| YOLOv5 **v7.0** (สถาปัตยกรรม · เทรน · inference) | **GPL-3.0** |
+| `best.pt` ที่แจกมาใน repo | **GPL-3.0** (สืบทอดจาก YOLOv5 v7.0 ที่ใช้เทรน) |
 | YOLOv5 ตั้งแต่ 14 เม.ย. 2023 เป็นต้นไป | AGPL-3.0 — โปรเจกต์นี้ **ไม่ได้ใช้** |
-| Dataset `typecandy` | CC BY 4.0 |
+| Dataset `typecandy` | CC BY 4.0 — ต้องระบุที่มา |
+| pypylon | BSD-3-Clause |
+| Basler pylon Camera Software Suite | **กรรมสิทธิ์ของ Basler** — ไม่ได้แจกจ่ายมากับ repo นี้ |
 
-GPL-3.0 ใช้เชิงพาณิชย์ได้ แต่เป็น copyleft — ถ้า **แจกจ่าย** ซอฟต์แวร์ที่รวมโค้ดนี้ ต้องเปิดซอร์สส่วนนั้นด้วย
-ไม่มีข้อบังคับ network-use แบบ AGPL จึงให้บริการเป็น API/SaaS ได้
+**GPL-3.0 ใช้เชิงพาณิชย์ได้** แต่เป็น copyleft — ถ้า **แจกจ่าย** ซอฟต์แวร์ที่รวมโค้ดนี้ ต้องเปิดซอร์สส่วนนั้นด้วย
+ใช้ภายในองค์กรโดยไม่แจกจ่ายออกไป ไม่มีข้อผูกพันนี้ · และไม่มีข้อบังคับ network-use แบบ AGPL จึงทำ API/SaaS ได้
 
 การปักที่ tag `v7.0` ทั้งในโน้ตบุ๊ก (`git clone -b v7.0`) และใน `yolo_lib.py`
 (`torch.hub.load("ultralytics/yolov5:v7.0", ...)`) จึงเป็น **ข้อกำหนดด้านใบอนุญาต ไม่ใช่แค่การล็อกเวอร์ชัน**
-เปลี่ยนไปใช้ branch อื่นเมื่อไหร่ เงื่อนไขใบอนุญาตเปลี่ยนทันที
+อัปเป็น branch ปัจจุบันเมื่อไหร่ ทั้งโปรเจกต์กลายเป็น AGPL-3.0 ทันที
+
+> **ก่อนแจกจ่ายผลิตภัณฑ์ที่รวมโค้ดนี้กับ Basler pylon** — การเชื่อมโค้ด GPL เข้ากับไลบรารีกรรมสิทธิ์
+> เป็นประเด็นที่ต้องพิจารณา ดูรายละเอียดและข้อความ §7 additional permission ที่เตรียมไว้ให้
+> ใน [`THIRD-PARTY-NOTICES.md`](THIRD-PARTY-NOTICES.md#pylon-gpl)
 
 <sub>ข้อความข้างต้นเป็นสรุปเพื่อความเข้าใจ ไม่ใช่คำแนะนำทางกฎหมาย — โครงการเชิงพาณิชย์ควรตรวจสอบกับฝ่ายกฎหมายของตนเอง</sub>
 
