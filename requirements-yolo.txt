@@ -21,3 +21,4 @@ tqdm
 pandas
 matplotlib
 seaborn
+setuptools<81
